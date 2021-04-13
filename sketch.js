@@ -11,6 +11,8 @@ function draw(){
   if (mouseIsPressed) {
     background(0);
     array.push([mouseX, mouseY]); //to push mouseX and mouseY into array
+    line(mouseX, mouseY, pmouseX, pmouseY);
+    line(width-mouseX, mouseY, width-pmouseX, pmouseY)
   }
 }
 
