@@ -11,8 +11,7 @@ function draw(){
   if (mouseIsPressed) {
     background(0);
     array.push([mouseX, mouseY]); //to push mouseX and mouseY into array
-    line(mouseX, mouseY, pmouseX, pmouseY);
-    line(width-mouseX, mouseY, width-pmouseX, pmouseY)
+
   }
 }
 
@@ -34,6 +33,14 @@ function keyTyped() {
       beginShape();    //draw image in curvilinear lines
       for (let i = 0; i < array.length; i++) {
         curveVertex(array[i][0], array[i][1]);
+      }
+      endShape();
+
+      //display the same image at a smaller scale
+      beginShape();
+      scale(0.35);
+      for (let i = 0; i < array.length; i++) {
+        curveVertex(width-array[i][0]*0.35, array[i][1]);
       }
       endShape();
     }
